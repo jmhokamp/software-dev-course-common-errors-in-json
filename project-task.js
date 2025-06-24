@@ -47,24 +47,24 @@ but it contains multiple syntax errors that prevent it from being parsed.
 const invalidBookingJSON = `
 {
   "hotelName": "Grand City Hotel",
-  "checkInDate": "2024-05-15"
+  "checkInDate": "2024-05-15", //Added a comma
   "checkOutDate": "2024-05-20",
   "guests": [
     {
-      name: "Alice Johnson",
+      "name": "Alice Johnson", //Missing "" around name
       "age": 30,
       "email": "alice.johnson@example.com"
     },
     {
       "name": "Bob Smith",
-      "age": undefined,
+      "age": null, //switched to null and not undefined
       "email": "bob.smith@example"
     }
   ],
   "roomDetails": {
     "type": "Suite",
     "pricePerNight": 200,
-    "amenities": ["WiFi", "Breakfast", "Parking",]
+    "amenities": ["WiFi", "Breakfast", "Parking"] //Extra comma added within []
   }
 }
 `;
@@ -91,11 +91,18 @@ const invalidBookingJSON = `
 💬 Reflect and answer the following:
 
 1️⃣ What tools or techniques did you use to identify the errors?
+I used what I learned in the module and the previous practices to help
+determine the errors. 
 
 2️⃣ How did you confirm that your corrected JSON file was valid?
+I used the recommended validator https://jsonlint.com/.
 
 3️⃣ Which errors were the most difficult to spot? Why?
+Well I am not sure if part of the error is that it's being stored in a variable. So
+I left it cause I don't know! But switching undefined to null was probably more challenging.
 
 4️⃣ What strategies can help you avoid these kinds of errors in the future?
    (e.g., syntax highlighting, linters, writing JSON by example)
+   Linters will be benefical to help ensure I have no errors. I could 
+   use flow charts to map out my data structure. 
 */
